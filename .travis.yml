@@ -4,6 +4,7 @@ services:
 
 before_install:
   - docker build -t youjian/docker-react -f Dockerfile.dev .
+  
 
 script:
   - docker run youjian/docker-react npm run test -- --coverage
