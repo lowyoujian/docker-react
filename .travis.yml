@@ -7,7 +7,7 @@ before_install:
 
 
 script:
-  - docker run youjian/docker-react npm run test -- --coverage.
+  - docker run youjian/docker-react npm run test -- --coverage
 deploy:
   provider: elasticbeanstalk
   region: "eu-west-2"
