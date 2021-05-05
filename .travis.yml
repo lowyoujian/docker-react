@@ -4,7 +4,20 @@ services:
 
 before_install:
   - docker build -t youjian/docker-react -f Dockerfile.dev .
-  
+
 
 script:
-  - docker run youjian/docker-react npm run test -- --coverage
+  - docker run youjian/docker-react npm run test -- --coverage.
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-2"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket: "elasticbeanstalk-eu-west-2-443710600322"
+  bucket-path: "docker-react"
+  on:
+    branch:master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
+    
